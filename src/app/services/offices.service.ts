@@ -14,6 +14,6 @@ export class OfficesService {
   constructor(private http: HttpClient) { }
 
      getOffices(): Observable<IOffice[]>{
-       return this.http.get<IOffice>('http://localhost:8000/offices')
+       return this.http.get('http://localhost:8000/offices')
     }
   }

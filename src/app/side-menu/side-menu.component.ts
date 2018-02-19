@@ -47,7 +47,7 @@ export class SideMenuComponent implements OnInit {
   getOffices(): void{
     this.officesService.getOffices()
       .subscribe(offices => this.offices = offices);
-      console.log(this.offices)
+    console.log(this.offices)
   }
 
 }
