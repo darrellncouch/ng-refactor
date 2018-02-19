@@ -1,0 +1,93 @@
+<div class="card white side-menu " style="min-width: 356.09px;">
+  <div class="card-header">
+    <h5>Filter</h5>
+  </div>
+  <div class="card-body no-pad">
+
+    <form class="" action="index.html" method="post">
+        <div class="list-group ">
+          <fieldset>
+
+          <!-- select office -->
+          <div class="list-group-item no-pad-bottom">
+            <div class="row ">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="office">Office</label>
+                  <select class="form-control" id="office">
+                    <option disabled selected>Select Office</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- cutomer status -->
+          <div class="list-group-item no-pad-bottom">
+            <div class="row">
+              <div class="col-sm-12">
+
+                <div class="form-group">
+                  <label for="cusrtomerStatus">Customer Status</label>
+                  <select class="form-control" id="customerStatus">
+                    <option selected>Active</option>
+                    <option>Terminated</option>
+                    <option>Both</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a class="list-group-item list-group-item-action" (click)="toggleListItem('zones')">Zones</a>
+
+          <div *ngIf="listItemSelected.zones === true">
+            <div class="card card-body">
+              <p>this is</p>
+              <p>where you</p>
+              <p>filter shit</p>
+            </div>
+          </div>
+
+          <a class="list-group-item list-group-item-action" (click)="toggleListItem('week')">Week</a>
+
+          <div *ngIf="listItemSelected.week === true">
+            <div class="card card-body">
+              <p>this is</p>
+              <p>where you</p>
+              <p>filter shit</p>
+            </div>
+          </div>
+
+          <a class="list-group-item list-group-item-action" (click)="toggleListItem('month')">Month</a>
+
+          <div *ngIf="listItemSelected.month === true">
+            <div class="card card-body">
+              <p>this is</p>
+              <p>where you</p>
+              <p>filter shit</p>
+            </div>
+          </div>
+
+          <a class="list-group-item list-group-item-action" (click)="toggleListItem('servicePlan')">Service Plan</a>
+
+          <div *ngIf="listItemSelected.servicePlan === true">
+            <div class="card card-body">
+              <p>this is</p>
+              <p>where you</p>
+              <p>filter shit</p>
+            </div>
+          </div>
+
+
+
+          </fieldset>
+        </div>
+    </form>
+
+  </div>
+</div>

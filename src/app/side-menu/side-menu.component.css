@@ -1,0 +1,28 @@
+.border-top-grey{
+  border-top: 1px solid #e0e0e0;
+}
+
+.border-bottom-grey{
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.no-pad{
+  padding: 0px;
+}
+
+.no-pad-bottom{
+  padding-bottom: 0px;
+}
+
+.drop-down-icon{
+  font-size: 2em;
+}
+
+.list-group-item-action:hover{
+  background-color: #2F7BF6;
+  color: white;
+}
+
+.side-menu{
+  margin: 1em;
+}
