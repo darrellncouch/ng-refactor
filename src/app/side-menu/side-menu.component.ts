@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { IOffice } from '../office';
+import { IZone } from '../zone';
+import { ICustomer } from './customer';
 
 //services
 import { OfficesService } from '../services/offices.service';
+import { ZonesService } from '../services/zones.service';
+import { CustomerService } from './services/customer.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -13,6 +17,8 @@ import { OfficesService } from '../services/offices.service';
 export class SideMenuComponent implements OnInit {
 
   offices: IOffice[];
+  zones: IZone[];
+  customers: ICustomer[];
   listItemSelected = {
     zones: false,
     week: false,
@@ -20,12 +26,17 @@ export class SideMenuComponent implements OnInit {
     servicePlan: false
   }
 
-  constructor(private officesService: OfficesService) { }
+  constructor(private officesService: OfficesService, private zonesService: ZonesService) { }
 
   ngOnInit() {
 
     this.getOffices();
 
+  }
+
+  handleOfficeSelect(e): void{
+    this.getZones(e);
+    this.getCustomers(e);
   }
 
   toggleListItem(itemClicked: string): void{
@@ -47,7 +58,19 @@ export class SideMenuComponent implements OnInit {
   getOffices(): void{
     this.officesService.getOffices()
       .subscribe(offices => this.offices = offices);
-    console.log(this.offices)
+  }
+
+  getZones(selectedOffice: number): void{
+    this.zonesService.getZones(selectedOffice)
+      .subscribe(zones => this.zones = zones);
+  }
+
+  @Output() officeEmitter: EventEmitter<number> = EventEmitter<number>();
+
+  getCustomers(selectedOffice: number): void{
+    this.customerService.getCustomers(selectedOffice)
+      .subscribe(customers => this.customers = customers);
+    this.officeEmitter.emit(selectedOffice)
   }
 
 }

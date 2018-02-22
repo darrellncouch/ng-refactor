@@ -5,15 +5,16 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-//Interfaces
-import { IOffice } from '../office';
+//interfaces
+import { ICustomer } from '../customer';
 
 @Injectable()
-export class OfficesService {
+export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
-    getOffices(): Observable<IOffice[]>{
-       return this.http.get<IOffice[]>('http://localhost:8000/offices')
-    }
+  getCustomer(officeID: number): Observable<ICustomer[]>{
+     return this.http.get<ICustomer[]>(`http://localhost:8000/customers${officeID}`)
   }
+
+}

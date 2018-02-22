@@ -1,3 +1,20 @@
-.scroll{
-  overflow-y: scroll;
+.left{
+  height: 95vh;
+  max-width: 365px;
+  background-color: white;
+}
+
+.right{
+  height: 100vh;
+}
+agm-map {
+  height: 95vh;
+  width: 99.5%;
+}
+.map-component{
+   padding-left: 0;
+}
+
+.projection-table-component{
+  padding-left: 0;
 }

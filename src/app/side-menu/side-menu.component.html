@@ -1,93 +1,257 @@
-<div class="card white side-menu " style="min-width: 356.09px;">
-  <div class="card-header">
+<div class="row">
+  <div class="col-sm-12 menu-heading">
     <h5>Filter</h5>
   </div>
-  <div class="card-body no-pad">
-
+</div>
+<div class="row">
+  <div class="col-sm-12 side-menu">
     <form class="" action="index.html" method="post">
-        <div class="list-group ">
-          <fieldset>
+    <div class="list-group ">
+      <fieldset>
 
-          <!-- select office -->
-          <div class="list-group-item no-pad-bottom">
-            <div class="row ">
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label for="office">Office</label>
-                  <select class="form-control" id="office">
-                    <option disabled selected>Select Office</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
+      <!-- select office -->
+      <div class="list-group-item no-pad-bottom">
+        <div class="row ">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <select class="form-control" id="office" (change)="handleOfficeSelect($event.target.value)">
+                <option disabled selected>Select Office</option>
+                <option *ngFor="let office of offices" value={{office.id}}>{{office.office}}</option>
+              </select>
             </div>
           </div>
-
-          <!-- cutomer status -->
-          <div class="list-group-item no-pad-bottom">
-            <div class="row">
-              <div class="col-sm-12">
-
-                <div class="form-group">
-                  <label for="cusrtomerStatus">Customer Status</label>
-                  <select class="form-control" id="customerStatus">
-                    <option selected>Active</option>
-                    <option>Terminated</option>
-                    <option>Both</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a class="list-group-item list-group-item-action" (click)="toggleListItem('zones')">Zones</a>
-
-          <div *ngIf="listItemSelected.zones === true">
-            <div class="card card-body">
-              <p>this is</p>
-              <p>where you</p>
-              <p>filter shit</p>
-            </div>
-          </div>
-
-          <a class="list-group-item list-group-item-action" (click)="toggleListItem('week')">Week</a>
-
-          <div *ngIf="listItemSelected.week === true">
-            <div class="card card-body">
-              <p>this is</p>
-              <p>where you</p>
-              <p>filter shit</p>
-            </div>
-          </div>
-
-          <a class="list-group-item list-group-item-action" (click)="toggleListItem('month')">Month</a>
-
-          <div *ngIf="listItemSelected.month === true">
-            <div class="card card-body">
-              <p>this is</p>
-              <p>where you</p>
-              <p>filter shit</p>
-            </div>
-          </div>
-
-          <a class="list-group-item list-group-item-action" (click)="toggleListItem('servicePlan')">Service Plan</a>
-
-          <div *ngIf="listItemSelected.servicePlan === true">
-            <div class="card card-body">
-              <p>this is</p>
-              <p>where you</p>
-              <p>filter shit</p>
-            </div>
-          </div>
-
-
-
-          </fieldset>
         </div>
-    </form>
+      </div>
 
+      <!-- cutomer status -->
+      <div class="list-group-item no-pad-bottom">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="cusrtomerStatus">Customer Status</label>
+              <select class="form-control" id="customerStatus">
+                <option selected>Active</option>
+                <option>Terminated</option>
+                <option>Both</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="list-group-item list-group-item-action " (click)="toggleListItem('zones')">Zones</a>
+
+      <div class="collaps-menu-item " *ngIf="listItemSelected.zones === true">
+        <div class="card card-body zones">
+          <div class="form-group">
+            <fieldset class="form-group">
+
+              <div class="form-check" *ngFor="let zone of zones">
+                <label class="form-check-label">
+                  <input  class="form-check-input" type="checkbox" value={{zone.id}}>
+                  {{zone.zone}}
+                </label>
+              </div>
+
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+      <a class="list-group-item list-group-item-action" (click)="toggleListItem('week')">Week</a>
+
+      <div *ngIf="listItemSelected.week === true">
+        <div class="card card-body">
+          <div class="form-group">
+            <fieldset class="form-group no-marg">
+
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input  class="form-check-input" type="checkbox" value="1">
+                  week 1
+                </label>
+              </div>
+
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input  class="form-check-input" type="checkbox" value="2">
+                  week 2
+                </label>
+              </div>
+
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input  class="form-check-input" type="checkbox" value="3">
+                  week 3
+                </label>
+              </div>
+
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input  class="form-check-input" type="checkbox" value="4">
+                  week 4
+                </label>
+              </div>
+
+            </fieldset>
+          </div>
+
+        </div>
+      </div>
+
+      <a class="list-group-item list-group-item-action" (click)="toggleListItem('month')">Month</a>
+
+      <div *ngIf="listItemSelected.month === true">
+        <div class="card card-body">
+
+        <div class="row">
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="1">
+                Jan
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="2">
+                Feb
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="3">
+                Mar
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="4">
+                Apr
+            </label>
+          </div>
+
+        </div>
+        </div>
+        <div class="row">
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="5">
+                May
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="6">
+                Jun
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="7">
+                Jul
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="8">
+                Aug
+            </label>
+          </div>
+
+        </div>
+        </div>
+        <div class="row margin-bottom">
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="9">
+                Sep
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="10">
+                Oct
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="11">
+                Nov
+            </label>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" value="12">
+                Dec
+            </label>
+          </div>
+
+        </div>
+        </div>
+
+        </div>
+      </div>
+
+      <a class="list-group-item list-group-item-action" (click)="toggleListItem('servicePlan')">Service Plan</a>
+
+      <div *ngIf="listItemSelected.servicePlan === true">
+        <div class="card card-body">
+
+          <div class="form-group">
+            <select class="form-control" id="customerStatus">
+              <option selected>All</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Every Other Month">Every Other Month</option>
+              <option value="Quarterly">Quarterly</option>
+              <option value="Seasonal">Seasonal</option>
+              <option value="5 Treatment Plan">5TP</option>
+              <option value="7 treatment Plan">7TP</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-sm-10 offset-sm-1 btn-container">
+        <input type="submit" name="" class="btn btn-primary btn-100" value="Get Customers">
+      </div>
+
+
+      </fieldset>
+    </div>
+</form>
   </div>
 </div>

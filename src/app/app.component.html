@@ -1,17 +1,21 @@
 <app-top-nav></app-top-nav>
 <div class="row">
   <!-- left -->
-  <div class="d-none d-sm-block col-md-4 col-lg-3" style=" margin-right: 0">
+  <div class="d-none d-sm-block col-md-4 col-lg-3 left" >
     <app-side-menu></app-side-menu>
   </div>
 
   <!-- right -->
-  <div class=" col-sm-8 col-md-8 col-lg-9">
+  <div class=" col-sm-8 col-md-8 col-lg-9 right">
     <div class="row">
-      <app-map></app-map>
+      <div class="col-sm-12 map-component">
+        <app-map></app-map>
+      </div>
     </div>
     <div class="row">
-
+      <div class="col-sm-12 projection-table-component">
+        <app-projection-table></app-projection-table>
+      </div>
     </div>
   </div>
 

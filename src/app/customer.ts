@@ -1,4 +1,4 @@
-export class Customer{
+export interface ICustomer{
   id: number,
   office_id: number,
   is_active: boolean,
